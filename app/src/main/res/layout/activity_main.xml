@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="70dp"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:text="@string/privacy_header_1"
+                style="@style/header"/>
+
+            <TextView
+                style="@style/privacy_text"
+                android:layout_marginTop="29dp"
+                android:text="@string/privacy_text"/>
+
+            <Button
+                android:id="@+id/got_it"
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="29dp"
+                android:text="@string/understood"
+                android:background="@drawable/rounded_button"
+                android:textAppearance="@style/rounded_button_text"/>
+
+
+            <TextView
+                style="@style/header"
+                android:layout_marginTop="48dp"
+                android:text="@string/privacy_header_2"/>
+
+
+            <TextView
+                android:id="@+id/long_long_text"
+                style="@style/privacy_text"
+                android:layout_marginTop="23dp"
+                android:text="@string/long_text"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_hideable="true"
+        app:layout_behavior="app.we.go.bottombutton.OutOfScreenBottomSheetBehavior">
+
+        <Button
+            android:id="@+id/bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/understood"
+            android:textAppearance="@style/rounded_button_text"/>
+    </FrameLayout>
+
+
+    <!-- This view serves as the dependency of the of the OutOfScreenBottomSheetBehavior
+     (it has to be a direct child of the CoordinatorLayout) -->
+    <View
+        android:id="@+id/behavior_dependency"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_anchor="@id/got_it"
+        app:layout_anchorGravity="bottom"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
