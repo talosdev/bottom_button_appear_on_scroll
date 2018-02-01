@@ -16,8 +16,15 @@ import android.widget.FrameLayout;
 public class OutOfScreenBottomSheetBehavior extends BottomSheetBehavior<FrameLayout> {
 
 
+    private int statusBarHeight;
+
     public OutOfScreenBottomSheetBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            statusBarHeight = context.getResources().getDimensionPixelSize(resourceId);
+        }
     }
 
     @Override
@@ -32,8 +39,8 @@ public class OutOfScreenBottomSheetBehavior extends BottomSheetBehavior<FrameLay
         dependency.getLocationInWindow(dependencyLocation);
         Log.d("BEHAVIOR", "Location: " + dependencyLocation[1]);
 
-        if (dependencyLocation[1] <= 72 ) {
-            if (getState()!=STATE_EXPANDED) {
+        if (dependencyLocation[1] <= statusBarHeight) {
+            if (getState() != STATE_EXPANDED) {
                 setState(STATE_EXPANDED);
             }
         } else {
