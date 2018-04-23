@@ -38,7 +38,7 @@
                 android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="29dp"
-                android:text="@string/understood"
+                android:text="@string/agree"
                 android:background="@drawable/rounded_button"
                 android:textAppearance="@style/rounded_button_text"/>
 
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/colorPrimary"
-            android:text="@string/understood"
+            android:text="@string/agree"
             android:textAppearance="@style/rounded_button_text"/>
     </FrameLayout>
 
